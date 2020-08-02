@@ -1,0 +1,28 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: jianjianhe-customer  #应用名称
+    #配置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.106:3306/huafa-build-bak?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: jianjianhe2020
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#feign:
+#  httpclient:
+#    enabled: false
+#  okhttp:
+#    enabled: true
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 20000
+        read-timeout: 20000
+

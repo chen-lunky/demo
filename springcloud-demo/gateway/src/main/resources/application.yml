@@ -1,0 +1,32 @@
+server:
+  port: 10086
+
+spring:
+  application:
+    name: jianjianhe-gateway  #应用名称
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #表示开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          lowerCaseServiceId: true
+      #路由集合
+      routes:
+        - id: customer  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://jianjianhe-customer  #匹配后提供服务的路由地址
+          predicates:
+            - Path=/customer/**   # 断言，路径相匹配的进行路由
+
+        - id: goods   #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: lb://jianjianhe-goods  #匹配后提供服务的路由地址
+          predicates:
+            - Path=/goods/**  # 断言，路径相匹配的进行路由
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+#nacos:
+#  address: 127.0.0.1:8848
+#  data-id: jianjianhe-gateway
+#  group-id: jianjianhe
+#  timeout: 5000

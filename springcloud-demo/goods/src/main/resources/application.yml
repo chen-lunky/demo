@@ -1,0 +1,23 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: jianjianhe-goods  #应用名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  #配置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.106:3306/huafa-build-bak?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: jianjianhe2020
+#配置mybatis的别名
+#pojo别名扫描包
+mybatis:
+  type-aliases-package: com.jianjianhe.goods.pojo
+
+
+

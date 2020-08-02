@@ -1,0 +1,27 @@
+GET http://localhost:10086/customer/list/2/6
+
+Content-Type: application/json
+
+{
+
+}
+
+###
+GET http://localhost:9002/customer/list/1/3
+
+Content-Type: application/json
+
+{
+
+}
+###
+
+GET http://localhost:9003/goods/list/1/5
+
+Content-Type: application/json
+
+{
+
+}
+
+###
